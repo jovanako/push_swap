@@ -6,7 +6,7 @@
 #    By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 16:24:37 by jkovacev          #+#    #+#              #
-#    Updated: 2025/03/31 21:44:28 by jkovacev         ###   ########.fr        #
+#    Updated: 2025/04/02 22:03:33 by jkovacev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,22 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c \
 		stack.c \
 		list.c \
-		ft_atoi.c
+		ft_atoi.c \
+		ft_itoa.c \
+		parse_input.c \
+		instructions_rotate.c \
+		instructions_swap_push.c	
 
 OBJS = $(SRCS:.c=.o)
 
-DEPS = push_swap.h
+DEPS = push_swap.h \
+		list.h \
+		stack.h
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(OBJS) $(NAME)
+	$(CC) $(OBJS) -o $(NAME)
 
 %.o: %.c $(DEPS)
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -36,7 +42,7 @@ $(NAME) : $(OBJS)
 clean:
 	rm -f $(OBJS)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
