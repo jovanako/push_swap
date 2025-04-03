@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:16:55 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/02 22:02:59 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:49:28 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int     main(int argc, char *argv[])
     b = create_stack();
     if (!b)
         return (1);
-    fill_stack(a, argc, argv);
+    fill_stack(a, argc - 1, argv);
     return (0);
 }

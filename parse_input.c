@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 20:11:00 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/02 21:25:43 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:34:25 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@ static int     check_digit(char *s)
     while (s[i])
     {
         if (!(s[i] >= '0' && s[i] <= '9'))
-        {
-            write (1, "Error\nSome arguments are not integers.\n", 39);
             return (0);
-        }
         i++;
     }
 	return (1);
 }
-
 static int     is_duplicate(t_list_node *node, int n)
 {
     int         current_num;
@@ -39,35 +35,40 @@ static int     is_duplicate(t_list_node *node, int n)
     current_node = node;
     if (current_node)
     {
+        current_num = current_node->number;
         while (current_node->next)
         {
-            current_num = current_node->number;
             if (current_num == n)
                 return (1);
-            current_node = current_node->next;   
+            current_node = current_node->next;
+            current_num = current_node->number;
         }
     }
     return (0);
 }
-
+#include <stdio.h>
 int    fill_stack(t_stack *stack, int n, char *nums[])
 {
     int     i;
     int     current_value;
+    // int     previous;
     
-    i = n - 1;
+    i = n;
     while (i > 0)
     {
         if (!check_digit(nums[i]))
+        {
+            write (1, "Error\nSome arguments are not integers.\n", 39);
             return (0);
+        }
         current_value = ft_atoi(nums[i]);
+        if (!push(stack, current_value))
+            return (0);
         if (is_duplicate(stack->head, current_value))
         {
             write (1, "Error\nSome arguments are duplicates.\n", 37);
             return (0);
         }
-        if (!push(stack, current_value))
-            return (0);
         i--;
     }
     return (1);
