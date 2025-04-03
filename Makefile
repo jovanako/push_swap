@@ -6,15 +6,15 @@
 #    By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 16:24:37 by jkovacev          #+#    #+#              #
-#    Updated: 2025/04/02 22:03:33 by jkovacev         ###   ########.fr        #
+#    Updated: 2025/04/03 19:29:52 by jkovacev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = cc
+CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -O0 -Wall -Wextra -Werror
 
 SRCS = push_swap.c \
 		stack.c \
