@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 21:40:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/02 20:47:11 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/03 21:16:44 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ static int	ft_strlen(const char *str)
 	return (len);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-	unsigned char	*p1;
-	unsigned char	*p2;
+	char	*p1;
+	char	*p2;
 
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
+	p1 = s1;
+	p2 = s2;
+	if (s2[0] == '-' && s2[1] == '0')
+		return (0);
 	while ((n > 0) && (*p1 || *p2))
 	{
 		if ((*p1 - *p2) != 0)
@@ -49,7 +51,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-
+#include <stdio.h>
 int	ft_atoi(char *nptr)
 {
 	int			i;

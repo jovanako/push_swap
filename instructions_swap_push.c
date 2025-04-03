@@ -6,18 +6,11 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:34:45 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/02 20:25:00 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/03 21:50:57 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
-
-int     is_empty(t_stack *stack)
-{
-    if (stack->head == NULL)
-        return (1);
-    return (0);
-}
 
 int    swap_first_two(t_stack *stack)
 {

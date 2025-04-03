@@ -6,11 +6,18 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 20:09:17 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/02 20:43:55 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/03 21:50:54 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
+
+int     is_empty(t_stack *stack)
+{
+    if (stack->head == NULL)
+        return (1);
+    return (0);
+}
 
 t_stack *create_stack()
 {
