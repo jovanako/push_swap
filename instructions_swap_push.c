@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:34:45 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/03 21:50:57 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/05 14:07:37 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int    swap_first_two(t_stack *stack)
     int         value1;
     int         value2;
 
-    if (is_empty(stack) || stack->head->next != NULL)
+    if (is_empty(stack) || stack->head->next == NULL)
         return (1);
     value1 = pop(stack);
     value2 = pop(stack);
@@ -41,7 +41,7 @@ int    push_to_other(t_stack *dest, t_stack *src)
 {
     int     value;
 
-    if (is_empty(dest))
+    if (is_empty(src))
         return (1);
     value = pop(src);
     if (!push(dest, value))
