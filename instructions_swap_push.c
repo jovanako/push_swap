@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:34:45 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/05 14:07:37 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/05 17:19:48 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,4 @@ int    push_to_other(t_stack *dest, t_stack *src)
     if (!push(dest, value))
         return (0);
     return (1);
-    return (0);
 }

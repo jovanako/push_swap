@@ -6,7 +6,7 @@
 #    By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 16:24:37 by jkovacev          #+#    #+#              #
-#    Updated: 2025/04/03 19:29:52 by jkovacev         ###   ########.fr        #
+#    Updated: 2025/04/05 15:09:21 by jkovacev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS = push_swap.c \
 		ft_itoa.c \
 		parse_input.c \
 		instructions_rotate.c \
-		instructions_swap_push.c	
+		instructions_swap_push.c \
+		sort.c	
 
 OBJS = $(SRCS:.c=.o)
 
