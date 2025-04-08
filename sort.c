@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 14:42:54 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/05 20:50:58 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:46:03 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,10 @@ int     sort_negatives(t_stack *stack, int mask)
     return (1);
 }
 
-#include <stdio.h>
 int     r_sort(t_stack *a, t_stack *b)
 {
-    int   mask;
-    int    bit_count;
+    int     mask;
+    int     bit_count;
 
     mask = 1;
     bit_count = 0;

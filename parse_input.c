@@ -6,11 +6,36 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 20:11:00 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/03 22:01:26 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:47:40 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
+
+int     find_highest_number(t_stack *stack)
+{
+    int         i;
+    int         distance_max;
+    int         current_value;
+    int         max;
+    t_list_node *current_node;
+
+    current_node = stack->head;
+    max = INT_MIN;
+    i = 0;    
+    while (current_node)
+    {
+        current_value = current_node->number;
+        if (current_value > max)
+        {
+            max = current_value;
+            distance_max = i;
+        }
+        current_node = current_node->next;
+        i++;
+    }
+    return (distance_max);
+}
 
 static int     check_digit(char *s)
 {
