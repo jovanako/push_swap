@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:22:41 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 16:20:19 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:39:06 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,6 @@ static int     sort_bit(t_stack *a, t_stack *b, int mask)
     return (1);
 }
 
-static int     sort_negatives(t_stack *stack, int mask)
-{
-    int    size;
-    
-    size = stack_size(stack);
-    while (size > 0)
-    {
-        if ((stack->head->simple & mask) == 0)
-        {
-            write (1, "ra\n", 3);
-            if(!rotate(stack))
-                return (0);
-        }
-        size--;
-    }
-    return (1);
-}
-
 static int     refill_a(t_stack *a, t_stack *b)
 {
     int     size;
@@ -79,7 +61,7 @@ int     r_sort(int n, t_stack *a, t_stack *b)
     mask = 1;
     bit = count_bits_highest(n);
     bit_count = 0;
-    while (bit_count < (bit - 1))
+    while (bit_count < bit)
     {
         if (!sort_bit(a, b, mask))
             return (0);
@@ -88,7 +70,5 @@ int     r_sort(int n, t_stack *a, t_stack *b)
         mask <<= 1;
         bit_count++;
     }
-    if (!sort_negatives(a, mask))
-        return (0);
     return (1);
 }

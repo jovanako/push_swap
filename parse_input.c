@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:03:25 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 11:52:52 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:37:59 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,8 @@ int    fill_stack(t_stack *stack, int n, char *nums[])
 {
     int     i;
     int     current_value;
-    // int     sorted;
     
     i = n;
-    // sorted = 1;
     while (i > 0)
     {
         if (!check_digit(nums[i]))
@@ -67,13 +65,9 @@ int    fill_stack(t_stack *stack, int n, char *nums[])
         current_value = ft_atoi(nums[i]);
         if (is_duplicate(stack->head, current_value))
             return (0);
-        // if (sorted && !is_empty(stack) && current_value > stack->head->number)
-        //     sorted = 0;
         if (!push(stack, current_value))
             return (0);
         i--;
     }
-    // if (sorted == 1)
-    //     exit(0);
     return (1);
 }

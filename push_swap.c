@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 16:15:29 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:56:32 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ int     main(int argc, char *argv[])
     //         i++;
     // }
     r_sort(argc - 2, a, b);
+    // current_node = a->head;
+    // i = 1;
+    // while (current_node)
+    // {
+    //         printf("a%d: %d simple: %d\n", i, current_node->number, current_node->simple);
+    //         current_node = current_node->next;
+    //         i++;
+    // }
     free(arr);
     return (0);
 }
