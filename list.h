@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:22:26 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/08 14:22:17 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:46:17 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct s_list_node
 {
     int      	        number;
+    int                 simple;
     struct s_list_node	*next;
 }   t_list_node;
 

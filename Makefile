@@ -6,7 +6,7 @@
 #    By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 16:24:37 by jkovacev          #+#    #+#              #
-#    Updated: 2025/04/05 15:09:21 by jkovacev         ###   ########.fr        #
+#    Updated: 2025/04/09 16:14:01 by jkovacev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,16 +21,19 @@ SRCS = push_swap.c \
 		list.c \
 		ft_atoi.c \
 		ft_itoa.c \
-		parse_input.c \
 		instructions_rotate.c \
 		instructions_swap_push.c \
-		sort.c	
+		parse_input.c \
+		pre_sort.c \
+		sort.c \
+		radix_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
-DEPS = push_swap.h \
-		list.h \
-		stack.h
+DEPS = list.h \
+		stack.h \
+		parse_input.h \
+		instructions.h
 
 all: $(NAME)
 

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   parse_input.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 08:54:58 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 09:58:25 by jkovacev         ###   ########.fr       */
+/*   Created: 2025/04/09 09:03:50 by jkovacev          #+#    #+#             */
+/*   Updated: 2025/04/09 16:15:36 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
+#include "stack.h"
 
-typedef struct s_stack
-{
-    t_list_node *head;
-    t_list_node *tail;
-}   t_stack;
-
-int     is_empty(t_stack *stack);
-int     stack_size(t_stack *stack);
-t_stack *create_stack();
-int     push(t_stack *stack, int n);
-int     pop(t_stack *stack);
+int     ft_atoi(char *nptr);
+char	*ft_itoa(int n);
+int     fill_stack(t_stack *stack, int n, char *nums[]);
+int     *sort_arr(int n, char *nums[]);
+int     count_bits_highest(int n);
+void    add_simple_nums(t_stack *stack, int *arr, int len);
+int     r_sort(int n, t_stack *a, t_stack *b);

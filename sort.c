@@ -5,88 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/05 14:42:54 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/08 15:46:03 by jkovacev         ###   ########.fr       */
+/*   Created: 2025/04/09 13:44:24 by jkovacev          #+#    #+#             */
+/*   Updated: 2025/04/09 16:10:54 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "parse_input.h"
 
-int     sort_bit(t_stack *a, t_stack *b, int mask)
+int     count_bits_highest(int n)
 {
-    int     size;
+    int             count;
 
-    size = stack_size(a);
-    while (size > 0)
+    count = 0;
+    while (n > 0)
     {
-        if ((a->head->number & mask) == 0)
-        {
-            write (1, "pb\n", 3);
-            if (!push_to_other(b, a))
-                return (0);
-        }
-        else
-        {
-            write (1, "ra\n", 3);
-            if(!rotate(a))
-                return (0);
-        }
-        size--;        
+        count++;
+        n >>= 1;
     }
-    return (1);
+    return (count);
 }
 
-int     refill_a(t_stack *a, t_stack *b)
+void     add_simple_nums(t_stack *stack, int *arr, int len)
 {
-    int     size;
+    int         i;
+    t_list_node *current_node;
 
-    size = stack_size(b);
-    while (size > 0)
+    current_node = stack->head;
+    while (current_node)
     {
-        write (1, "pa\n", 3);
-        if (!push_to_other(a, b))
-            return (0);
-        size--;
-    }
-    return (1);
-
-}
-int     sort_negatives(t_stack *stack, int mask)
-{
-    int    size;
-    
-    size = stack_size(stack);
-    while (size > 0)
-    {
-        if ((stack->head->number & mask) == 0)
+        i = 0;
+        while (i < len)
         {
-            write (1, "ra\n", 3);
-            if(!rotate(stack))
-                return (0);
+            if (current_node->number == arr[i])
+            {
+                current_node->simple = i;
+                break ;
+            }
+            i++;
         }
-        size--;
+        current_node = current_node->next;
     }
-    return (1);
-}
-
-int     r_sort(t_stack *a, t_stack *b)
-{
-    int     mask;
-    int     bit_count;
-
-    mask = 1;
-    bit_count = 0;
-    while (bit_count < 31)
-    {
-        if (!sort_bit(a, b, mask))
-            return (0);
-        if (!refill_a(a, b))
-            return (0);
-        mask <<= 1;
-        bit_count++;
-    }
-    if (!sort_negatives(a, mask))
-        return (0);
-    return (1);
 }
 

@@ -6,11 +6,11 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 21:40:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/03 21:16:44 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 09:51:38 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "parse_input.h"
 
 static int	ft_isdigit(int c)
 {
@@ -29,7 +29,7 @@ static int	ft_strlen(const char *str)
 	return (len);
 }
 
-int	ft_strncmp(char *s1, char *s2, size_t n)
+static int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	char	*p1;
 	char	*p2;
@@ -51,7 +51,6 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 	}
 	return (0);
 }
-#include <stdio.h>
 int	ft_atoi(char *nptr)
 {
 	int			i;

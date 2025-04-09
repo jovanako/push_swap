@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 20:09:17 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/08 14:22:06 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 08:59:55 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int     is_empty(t_stack *stack)
     return (0);
 }
 
-int	stack_size(t_stack *stack)
+int     stack_size(t_stack *stack)
 {
 	int 		count;
 	t_list_node	*current_node;
