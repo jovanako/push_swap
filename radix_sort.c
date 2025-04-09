@@ -6,11 +6,25 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:22:41 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 20:30:49 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 22:11:56 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "instructions.h"
+
+int     check_ones(t_stack *stack, int mask)
+{
+    t_list_node *current_node;
+
+    current_node = stack->head;
+    while (current_node)
+    {
+        if ((current_node->number & mask) != 1)
+            return (0);
+        current_node = current_node->next;
+    }
+    return (1);
+}
 
 static int     count_bits_highest(int n)
 {
@@ -38,6 +52,8 @@ static int     sort_bit(t_stack *a, t_stack *b, int mask)
             if (!push_to_other(b, a))
                 return (0);
         }
+        else if ((check_ones(a, mask)))
+            break ;
         else
         {
             write (1, "ra\n", 3);
@@ -78,8 +94,12 @@ int     r_sort(int n, t_stack *a, t_stack *b)
     {
         if (!sort_bit(a, b, mask))
             return (0);
+        // print_stack(a, 'a');
+        // print_stack(b, 'b');
         if (!refill_a(a, b))
             return (0);
+        // print_stack(a, 'a');
+        // print_stack(b, 'b');
         mask <<= 1;
         bit_count++;
     }
