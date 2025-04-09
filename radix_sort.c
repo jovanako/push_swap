@@ -6,11 +6,24 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:22:41 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 17:39:06 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:30:49 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "instructions.h"
+
+static int     count_bits_highest(int n)
+{
+    int             count;
+
+    count = 0;
+    while (n > 0)
+    {
+        count++;
+        n >>= 1;
+    }
+    return (count);
+}
 
 static int     sort_bit(t_stack *a, t_stack *b, int mask)
 {
@@ -19,7 +32,7 @@ static int     sort_bit(t_stack *a, t_stack *b, int mask)
     size = stack_size(a);
     while (size > 0)
     {
-        if ((a->head->simple & mask) == 0)
+        if ((a->head->number & mask) == 0)
         {
             write (1, "pb\n", 3);
             if (!push_to_other(b, a))

@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:09:19 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 14:20:23 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:28:59 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_list_node	*new_node(int number)
 	if (!new_node)
 		return (NULL);
 	new_node->number = number;
-	new_node->simple = 0;
 	new_node->next = NULL;
 	return (new_node);
 }

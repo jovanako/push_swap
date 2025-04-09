@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:03:50 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 16:15:36 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:31:09 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int     ft_atoi(char *nptr);
 char	*ft_itoa(int n);
-int     fill_stack(t_stack *stack, int n, char *nums[]);
-int     *sort_arr(int n, char *nums[]);
-int     count_bits_highest(int n);
-void    add_simple_nums(t_stack *stack, int *arr, int len);
+int     parse_args(int **arr, int argc, char *argv[]);
+int     fill_array(int **arr, int n, char *nums[]);
+int     fill_stack(t_stack *stack, int *arr, int n, char *nums[]);
+void    sort_arr(int *arr, int len);
 int     r_sort(int n, t_stack *a, t_stack *b);

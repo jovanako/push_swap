@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 14:34:45 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 17:53:20 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:28:55 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,11 @@ int    ss(t_stack *a, t_stack *b)
 int    push_to_other(t_stack *dest, t_stack *src)
 {
     int     value;
-    int     simple;
 
     if (is_empty(src))
         return (1);
-    simple = src->head->simple;
     value = pop(src);
     if (!push(dest, value))
         return (0);
-    dest->head->simple = simple;
     return (1);
 }

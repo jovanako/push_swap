@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 17:56:32 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:34:36 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,30 @@ int     main(int argc, char *argv[])
     t_stack         *b;
     int             *arr;
 
+    if (!parse_args(&arr, argc, argv))
+        return (1);
     a = create_stack();
     if (!a)
         return (1);
     b = create_stack();
     if (!b)
         return (1);
-    if (!fill_stack(a, argc - 1, argv))
-        return (1);
-    arr = sort_arr(argc, argv);
-    if (!arr)    
+    sort_arr(arr, argc - 1);
+    if (!arr)
         return (0);
+    if (!fill_stack(a, arr, argc - 1, argv))
+        return (1);
     // int i = 0;
     // while (i < (argc - 1))
     // {
     //     printf("arr[%d]: %d\n", i, arr[i]);
     //     i++;
     // }
-    add_simple_nums(a, arr, argc - 1);
     // i = 1;
     // t_list_node *current_node = a->head;
     // while (current_node)
     // {
-    //         printf("a%d: %d simple: %d\n", i, current_node->number, current_node->simple);
+    //         printf("a%d: %d\n", i, current_node->number);
     //         current_node = current_node->next;
     //         i++;
     // }
@@ -50,7 +51,7 @@ int     main(int argc, char *argv[])
     // i = 1;
     // while (current_node)
     // {
-    //         printf("a%d: %d simple: %d\n", i, current_node->number, current_node->simple);
+    //         printf("a%d: %d\n", i, current_node->number);
     //         current_node = current_node->next;
     //         i++;
     // }

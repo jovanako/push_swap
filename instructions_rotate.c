@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:12:50 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 17:55:42 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:28:46 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 int    rotate(t_stack *stack)
 {
     int         value;
-    int         simple;
     t_list_node *node;
 
     if (is_empty(stack))
         return (1);
-    simple = stack->head->simple;
     value = pop(stack);
     node = new_node(value);
     if (!node)
         return (0);
     add_back(&(stack->tail), node);
-    stack->tail->simple = simple;
     return(1);    
 }
 
