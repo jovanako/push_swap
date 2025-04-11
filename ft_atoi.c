@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 21:40:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 09:51:38 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/10 08:24:14 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	ft_strncmp(char *s1, char *s2, size_t n)
 	{
 		if ((*p1 - *p2) != 0)
 		{
-			write (1, "Error\nSome arguments are exceeding integer limits.\n", 51);
+			write (1, "Error\n", 6);
 			return (*p1 - *p2);
 		}
 		n--;

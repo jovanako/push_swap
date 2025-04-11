@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 15:12:50 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 20:28:46 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/11 18:17:34 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int    rev_rotate(t_stack *stack)
         previous_node = previous_node->next;
     }
     value = remove_back(&(stack->tail));
+    stack->tail = previous_node;
     previous_node->next = NULL;
     if (!push(stack, value))
         return (0);

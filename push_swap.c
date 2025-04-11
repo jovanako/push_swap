@@ -6,11 +6,11 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 21:39:19 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/11 18:56:49 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse_input.h"
+#include "sort.h"
 #include <stdio.h>
 
 int     main(int argc, char *argv[])
@@ -38,8 +38,9 @@ int     main(int argc, char *argv[])
     //     printf("arr[%d]: %d\n", i, arr[i]);
     //     i++;
     // }
-    // print_stack(a);
-    r_sort(argc - 2, a, b);
+    // print_stack(a, 'a');
+    if (!sort(argc - 2, a, b))
+        return (1);
     // t_list_node *current_node = a->head;
     // i = 1;
     // while (current_node)

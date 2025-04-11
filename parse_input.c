@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:03:25 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 21:38:05 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/10 08:40:01 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int     check_digit(int argc, char *argv[])
         {
             if (!(argv[j][i] >= '0' && argv[j][i] <= '9'))
             {
-                write (1, "Error\nSome arguments are not integers.\n", 39);
+                write (1, "Error\n", 6);
                 return (0);
             }
             i++;
@@ -52,7 +52,7 @@ static int     check_dup(int argc, int *arr)
         {
             if (arr[i] == arr[j])
             {
-                write (1, "Error\nSome arguments are duplicates.\n", 37);
+                write (1, "Error\n", 6);
                 return (0);
             }
             j++;
