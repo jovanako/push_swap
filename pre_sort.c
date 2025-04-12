@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:08:35 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 19:34:35 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/12 22:16:04 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int     fill_array(int **arr, int n, char *nums[])
     j = 0;
     while (i < n)
     {
-        (*arr)[j] = ft_atoi(nums[i]);
+        (*arr)[j] = ft_atoi(nums[i], *arr);
         i++;
         j++;
     }

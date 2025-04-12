@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 21:40:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/10 08:24:14 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/12 22:15:33 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_strncmp(char *s1, char *s2, size_t n)
 	}
 	return (0);
 }
-int	ft_atoi(char *nptr)
+int	ft_atoi(char *nptr, int *arr)
 {
 	int			i;
 	int			result;
@@ -72,8 +72,10 @@ int	ft_atoi(char *nptr)
 	result_str = ft_itoa(result);
 	if (ft_strncmp(result_str, nptr, ft_strlen(nptr)) != 0)
 	{
+		free(arr);
 		free(result_str);
 		exit(1);
 	}
+	free(result_str);
 	return (result);
 }

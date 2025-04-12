@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:03:25 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/12 21:20:32 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/12 22:14:24 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static int     check_dup(int argc, int *arr)
         {
             if (arr[i] == arr[j])
             {
+				free(arr);
                 write (1, "Error\n", 6);
                 return (0);
             }
@@ -81,7 +82,7 @@ int    fill_stack(t_stack *stack, int *arr, int n, char *nums[])
     i = n;
     while (i > 0)
     {
-        current_value = ft_atoi(nums[i]);
+        current_value = ft_atoi(nums[i], arr);
         j = 0;
         while(j < n)
         {

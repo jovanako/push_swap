@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:09:19 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/11 18:11:56 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/12 22:08:30 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int		remove_front(t_list_node **head)
     t_list_node *temp;
 	int			value;
 
-	temp = (t_list_node *)malloc(sizeof(t_list_node));
     if (*head)
     {
 		value = (*head)->number;

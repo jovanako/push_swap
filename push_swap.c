@@ -6,12 +6,26 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/12 21:21:42 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/12 22:20:51 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
-#include <stdio.h>
+
+void	cleanup(t_stack *stack)
+{
+	t_list_node	*current_node;
+	t_list_node	*temp;
+
+	current_node = stack->head;
+	while (current_node)
+	{
+		temp = current_node->next;
+		free(current_node);
+		current_node = temp;
+	}
+	free(stack);
+}
 
 int     main(int argc, char *argv[])
 {
@@ -34,23 +48,10 @@ int     main(int argc, char *argv[])
         return (0);
     if (!fill_stack(a, arr, argc - 1, argv))
         return (1);
-    // int i = 0;
-    // while (i < (argc - 1))
-    // {
-    //     printf("arr[%d]: %d\n", i, arr[i]);
-    //     i++;
-    // }
-    // print_stack(a, 'a');
     if (!sort(argc - 2, a, b))
         return (1);
-    // t_list_node *current_node = a->head;
-    // i = 1;
-    // while (current_node)
-    // {
-    //         printf("a%d: %d\n", i, current_node->number);
-    //         current_node = current_node->next;
-    //         i++;
-    // }
     free(arr);
+	cleanup(a);
+	cleanup(b);
     return (0);
 }
