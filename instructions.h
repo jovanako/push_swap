@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:00:35 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 21:40:37 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/28 22:10:17 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,3 @@ int    rotate(t_stack *stack);
 int    rr(t_stack *a, t_stack *b);
 int    rev_rotate(t_stack *stack);
 int    rrr(t_stack *a, t_stack *b);
-void    print_stack(t_stack *stack, char c);

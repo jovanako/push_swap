@@ -6,11 +6,21 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:03:25 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/12 22:14:24 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/28 22:08:07 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_input.h"
+
+static int	valid_strlen(char *s)
+{
+    if (ft_strlen(s) == 0)
+    {
+        write (1, "Error\n", 6);
+        exit(1);
+    }
+    return (1);
+}
 
 static int     check_digit(int argc, char *argv[])
 {
@@ -18,21 +28,22 @@ static int     check_digit(int argc, char *argv[])
     int     j;
     
     j = 1;
-    while (j < (argc - 1))
+    while (j < argc)
     {
         i = 0;
-        if (argv[j][i] == '-')
-            i = 1;
-        if (argv[j][i] == '0')
-            return (1);
-        while (argv[j][i])
+        if (valid_strlen(argv[j]))
         {
-            if (!(argv[j][i] >= '0' && argv[j][i] <= '9'))
+            if (argv[j][i] == '-')
+                i = 1;
+            while (argv[j][i])
             {
-                write (1, "Error\n", 6);
-                return (0);
+                if (!(argv[j][i] >= '0' && argv[j][i] <= '9'))
+                {
+                    write (1, "Error\n", 6);
+                    return (0);
+                }
+                i++;
             }
-            i++;
         }
         j++;
     }

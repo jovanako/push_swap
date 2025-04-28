@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:08:35 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/12 22:16:04 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/28 21:56:41 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int     fill_array(int **arr, int n, char *nums[])
     int     i;
     int     j;
 
-    *arr = (int *)malloc(n * sizeof(int));
+    *arr = (int *)malloc((n - 1) * sizeof(int));
     if (!(*arr))
         return (0);
     i = 1;

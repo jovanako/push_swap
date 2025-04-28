@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/12 22:20:51 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/28 22:08:25 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	cleanup(t_stack *stack)
 	}
 	free(stack);
 }
-
 int     main(int argc, char *argv[])
 {
     t_stack         *a;

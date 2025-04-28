@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:22:41 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/09 22:11:56 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/28 22:10:03 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,8 @@ int     r_sort(int n, t_stack *a, t_stack *b)
     {
         if (!sort_bit(a, b, mask))
             return (0);
-        // print_stack(a, 'a');
-        // print_stack(b, 'b');
         if (!refill_a(a, b))
             return (0);
-        // print_stack(a, 'a');
-        // print_stack(b, 'b');
         mask <<= 1;
         bit_count++;
     }

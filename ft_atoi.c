@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 21:40:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/12 22:15:33 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/28 21:44:38 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-static int	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	len;
 
@@ -31,23 +31,18 @@ static int	ft_strlen(const char *str)
 
 static int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-	char	*p1;
-	char	*p2;
-
-	p1 = s1;
-	p2 = s2;
 	if (s2[0] == '-' && s2[1] == '0')
 		return (0);
-	while ((n > 0) && (*p1 || *p2))
+	while ((n > 0) && (*s1 || *s2))
 	{
-		if ((*p1 - *p2) != 0)
+		if ((*s1 - *s2) != 0)
 		{
 			write (1, "Error\n", 6);
-			return (*p1 - *p2);
+			return (1);
 		}
 		n--;
-		p1++;
-		p2++;
+		s1++;
+		s2++;
 	}
 	return (0);
 }
