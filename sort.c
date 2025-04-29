@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 08:39:52 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/11 18:51:26 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/29 09:44:34 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ int     sort(int n, t_stack *a, t_stack *b)
 
     size = stack_size(a);
     max = size - 1;
-    if (size < 4)
+    if (size == 2)
+    {
+        write (1, "ra\n", 3);
+        if (!rotate(a))
+            return (0);
+    }
+    else if (size < 4)
     {
         if (!sort_three_nums(a, max))
             return (0);

@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:03:25 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/28 22:08:07 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/29 09:06:11 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	valid_strlen(char *s)
 {
-    if (ft_strlen(s) == 0)
+    if (ft_strlen(s) == 0 || (s[0] == '-' && s[1] == '0'))
     {
         write (1, "Error\n", 6);
         exit(1);

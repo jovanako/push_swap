@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/28 22:08:25 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/04/29 09:00:32 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int     main(int argc, char *argv[])
     t_stack         *b;
     int             *arr;
 
-    if (argc == 1)
+    if (argc < 3)
         return (0);
     if (!parse_args(&arr, argc, argv))
         return (1);
