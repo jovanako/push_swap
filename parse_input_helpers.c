@@ -6,16 +6,19 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:25:48 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 17:03:55 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/14 22:17:58 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_input.h"
 
-int	valid_str(char *s)
+int	valid_str(char *s, t_arr *arr_nums)
 {
 	if (ft_strlen(s) == 0 || (s[0] == '-' && s[1] == 0))
-		return (error_and_return());
+	{
+		free_full_t_arr(arr_nums);
+		error_and_exit();
+	}
 	return (1);
 }
 

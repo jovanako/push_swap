@@ -6,17 +6,17 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 17:27:30 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/14 21:49:37 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 #include "parse_input.h"
 
-int	error_and_return(void)
+int	error_and_exit(void)
 {
 	write (1, "Error\n", 6);
-	return (0);
+	exit(1);
 }
 
 void	cleanup_stacks(t_stack *stack)
@@ -44,7 +44,7 @@ int	check_args(int argc, char *argv[])
 	if (argc == 1)
 		return (0);
 	if (argc == 2 && ft_strlen(argv[1]) == 0)
-		return (error_and_return());
+		error_and_exit();
 	else if (argc == 2 && (!ft_strchr(argv[1], ' ')))
 		exit (1);
 	return (1);
@@ -91,7 +91,8 @@ int	main(int argc, char *argv[])
 	// 	current_node = current_node->next;
 	// 	i++;
 	// }
-	if (!sort(arr_nums->size - 1, a, b))
+	// printf("size: %d\n", arr_nums->size);
+	if (!sort(arr_nums->size, a, b))
 		return (1);
 	// current_node = a->head;
 	// i = 0;

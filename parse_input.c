@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 10:01:26 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 17:26:02 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/14 20:34:07 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,16 @@ int	check_dup(t_arr *arr_nums)
 	int	j;
 
 	i = 0;
-	while (i < (arr_nums->size - 1))
+	while (i < (arr_nums->size))
 	{
 		j = i + 1;
-		while (j < (arr_nums->size - 1))
+		while (j < (arr_nums->size))
 		{
 			if (arr_nums->arr[i] == arr_nums->arr[j])
+			{
+				write (1, "Error\n", 6);
 				return (free_full_t_arr_and_return(arr_nums));
+			}
 			j++;
 		}
 		i++;
@@ -88,6 +91,7 @@ int	parse_args(t_arr **arr_nums, int argc, char *argv[])
 	}
 	else if (argc > 2)
 	{
+		(*arr_nums)->size = argc - 1;
 		(*arr_nums)->numbers = copy_numbers(argc, argv, (*arr_nums)->numbers);
 		if (!(*arr_nums)->numbers)
 			return (free_t_arr_and_return(*arr_nums));

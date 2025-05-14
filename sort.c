@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 08:39:52 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 17:10:43 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/14 22:03:16 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int	sort(int n, t_stack *a, t_stack *b)
 		if (!rotate(a))
 			return (0);
 	}
-	else if (n < 4)
+	else if (n == 3)
 	{
 		if (!sort_three_nums(a, max))
 			return (0);
 	}
-	else if (n < 6)
+	else if (n == 5)
 	{
 		if (!sort_five_nums(a, b, max))
 			return (0);
