@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 21:40:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/29 09:04:03 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/14 17:24:11 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_strlen(const char *str)
+int	ft_strlen(char *str)
 {
 	int	len;
 
@@ -44,28 +44,29 @@ static int	ft_strncmp(char *s1, char *s2, size_t n)
 	}
 	return (0);
 }
-int	ft_atoi(char *nptr, int *arr)
+
+int	ft_atoi(char *s, t_arr *arr_nums)
 {
-	int			i;
-	int			result;
-	int			sign;
+	int		i;
+	int		result;
+	int		sign;
 	char	*result_str;
 
 	result = 0;
 	sign = 1;
 	i = 0;
-	if (nptr[i] == '-')
+	if (s[i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
-	while (ft_isdigit(nptr[i]) && (i < ft_strlen(nptr)))
-		result = result * 10 + (nptr[i++] - '0');
+	while (ft_isdigit(s[i]) && (i < ft_strlen(s)))
+		result = result * 10 + (s[i++] - '0');
 	result *= sign;
 	result_str = ft_itoa(result);
-	if (ft_strncmp(result_str, nptr, ft_strlen(nptr)) != 0)
+	if (ft_strncmp(result_str, s, ft_strlen(s)) != 0)
 	{
-		free(arr);
+		free_full_t_arr(arr_nums);
 		free(result_str);
 		exit(1);
 	}

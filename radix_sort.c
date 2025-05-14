@@ -6,98 +6,97 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:22:41 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/28 22:10:03 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/12 12:45:27 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "instructions.h"
 
-int     check_ones(t_stack *stack, int mask)
+int	check_ones(t_stack *stack, int mask)
 {
-    t_list_node *current_node;
+	t_list_node	*current_node;
 
-    current_node = stack->head;
-    while (current_node)
-    {
-        if ((current_node->number & mask) != 1)
-            return (0);
-        current_node = current_node->next;
-    }
-    return (1);
+	current_node = stack->head;
+	while (current_node)
+	{
+		if ((current_node->number & mask) != 1)
+			return (0);
+		current_node = current_node->next;
+	}
+	return (1);
 }
 
-static int     count_bits_highest(int n)
+static int	count_bits_highest(int n)
 {
-    int             count;
+	int	count;
 
-    count = 0;
-    while (n > 0)
-    {
-        count++;
-        n >>= 1;
-    }
-    return (count);
+	count = 0;
+	while (n > 0)
+	{
+		count++;
+		n >>= 1;
+	}
+	return (count);
 }
 
-static int     sort_bit(t_stack *a, t_stack *b, int mask)
+static int	sort_bit(t_stack *a, t_stack *b, int mask)
 {
-    int     size;
+	int	size;
 
-    size = stack_size(a);
-    while (size > 0)
-    {
-        if ((a->head->number & mask) == 0)
-        {
-            write (1, "pb\n", 3);
-            if (!push_to_other(b, a))
-                return (0);
-        }
-        else if ((check_ones(a, mask)))
-            break ;
-        else
-        {
-            write (1, "ra\n", 3);
-            if(!rotate(a))
-                return (0);
-        }
-        size--;        
-    }
-    return (1);
+	size = stack_size(a);
+	while (size > 0)
+	{
+		if ((a->head->number & mask) == 0)
+		{
+			write (1, "pb\n", 3);
+			if (!push_to_other(b, a))
+				return (0);
+		}
+		else if ((check_ones(a, mask)))
+			break ;
+		else
+		{
+			write (1, "ra\n", 3);
+			if (!rotate(a))
+				return (0);
+		}
+		size--;
+	}
+	return (1);
 }
 
-static int     refill_a(t_stack *a, t_stack *b)
+static int	refill_a(t_stack *a, t_stack *b)
 {
-    int     size;
+	int	size;
 
-    size = stack_size(b);
-    while (size > 0)
-    {
-        write (1, "pa\n", 3);
-        if (!push_to_other(a, b))
-            return (0);
-        size--;
-    }
-    return (1);
-
+	size = stack_size(b);
+	while (size > 0)
+	{
+		write (1, "pa\n", 3);
+		if (!push_to_other(a, b))
+			return (0);
+		size--;
+	}
+	return (1);
 }
 
-int     r_sort(int n, t_stack *a, t_stack *b)
+int	r_sort(int n, t_stack *a, t_stack *b)
 {
-    int     mask;
-    int     bit;
-    int     bit_count;
+	int	mask;
+	int	bit;
+	int	bit_count;
 
-    mask = 1;
-    bit = count_bits_highest(n);
-    bit_count = 0;
-    while (bit_count < bit)
-    {
-        if (!sort_bit(a, b, mask))
-            return (0);
-        if (!refill_a(a, b))
-            return (0);
-        mask <<= 1;
-        bit_count++;
-    }
-    return (1);
+	mask = 1;
+	bit = count_bits_highest(n);
+	bit_count = 0;
+	while (bit_count < bit)
+	{
+		if (!sort_bit(a, b, mask))
+			return (0);
+		if (!refill_a(a, b))
+			return (0);
+		mask <<= 1;
+		bit_count++;
+	}
+	return (1);
 }

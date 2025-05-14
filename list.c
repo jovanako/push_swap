@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 17:09:19 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/04/12 22:08:30 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/12 12:28:38 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,33 @@ void	add_front(t_list_node **head, t_list_node *new_node)
 
 void	add_back(t_list_node **tail, t_list_node *new_node)
 {
-    if (*tail)
-	    (*tail)->next = new_node;
+	if (*tail)
+		(*tail)->next = new_node;
 	*tail = new_node;
 }
 
-int		remove_front(t_list_node **head)
+int	remove_front(t_list_node **head)
 {
-    t_list_node *temp;
+	t_list_node	*temp;
 	int			value;
 
-    if (*head)
-    {
+	if (*head)
+	{
 		value = (*head)->number;
-        temp = *head;
-        *head = (*head)->next;
-        free(temp);
+		temp = *head;
+		*head = (*head)->next;
+		free(temp);
 		return (value);
-    }
+	}
 	exit(1);
 }
 
-int		remove_back(t_list_node **tail)
+int	remove_back(t_list_node **tail)
 {
-	int			value;
+	int	value;
 
-    if (*tail)
-    {
+	if (*tail)
+	{
 		value = (*tail)->number;
 		free(*tail);
 		return (value);
