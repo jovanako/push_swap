@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:01:58 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 11:27:46 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 09:30:55 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "instructions.h"
 
-void	sort_arr(int *arr, int len);
+void	sort_arr(t_arr *arr_nums);
 int		sort_three_nums(t_stack *a, int max);
 int		sort_five_nums(t_stack *a, t_stack *b, int max);
 int		sort(int n, t_stack *a, t_stack *b);

@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:08:35 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 22:19:12 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 09:30:14 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	swap(int *a, int *b)
 	*b = temp;
 }
 
-void	sort_arr(int *arr, int len)
+void	sort_arr(t_arr *arr_nums)
 {
 	int	i;
 	int	j;
@@ -65,21 +65,21 @@ void	sort_arr(int *arr, int len)
 
 	i = 0;
 	swapped = 0;
-	while (i < len)
+	while (i < arr_nums->size)
 	{
 		j = 0;
-		while (j < (len - i - 1))
+		while (j < (arr_nums->size - i - 1))
 		{
-			if (arr[j] > arr[j + 1])
+			if (arr_nums->arr[j] > arr_nums->arr[j + 1])
 			{
-				swap(&arr[j], &(arr[j + 1]));
+				swap(&arr_nums->arr[j], &(arr_nums->arr[j + 1]));
 				swapped = 1;
 			}
 			j++;
 		}
 		if (!swapped)
 		{
-			free(arr);
+			free_full_t_arr(arr_nums);
 			exit(0);
 		}
 		i++;

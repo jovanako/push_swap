@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 21:49:37 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 09:45:32 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	check_args(int argc, char *argv[])
 		exit (1);
 	return (1);
 }
-// #include <stdio.h>
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
@@ -60,21 +59,9 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (!parse_args(&(arr_nums), argc, argv))
 		return (1);
-	// int i = 0;
-	// while (i < arr_nums->size)
-	// {
-	// 	printf("numbers[%d]: %s\n", i, arr_nums->numbers[i]);
-	// 	i++;
-	// }
-	sort_arr(arr_nums->arr, arr_nums->size);
+	sort_arr(arr_nums);
 	if (!arr_nums->arr)
 		return (0);
-	// i = 0;
-	// while (i < arr_nums->size)
-	// {
-	// 	printf("arr[%d]: %d\n", i, arr_nums->arr[i]);
-	// 	i++;
-	// }
 	a = create_stack();
 	if (!a)
 		return (1);
@@ -83,25 +70,8 @@ int	main(int argc, char *argv[])
 		return (1);
 	if (!fill_stack(a, arr_nums))
 		return (1);
-	// t_list_node *current_node = a->head;
-	// i = 0;
-	// while (current_node)
-	// {
-	// 	printf("a[%d] = %d\n", i, current_node->number);
-	// 	current_node = current_node->next;
-	// 	i++;
-	// }
-	// printf("size: %d\n", arr_nums->size);
 	if (!sort(arr_nums->size, a, b))
 		return (1);
-	// current_node = a->head;
-	// i = 0;
-	// while (current_node)
-	// {
-	// 	printf("a[%d] = %d\n", i, current_node->number);
-	// 	current_node = current_node->next;
-	// 	i++;
-	// }
 	cleanup_arr(arr_nums);
 	cleanup_stacks(a);
 	cleanup_stacks(b);
