@@ -6,7 +6,7 @@
 #    By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 16:24:37 by jkovacev          #+#    #+#              #
-#    Updated: 2025/05/15 10:25:50 by jkovacev         ###   ########.fr        #
+#    Updated: 2025/05/15 18:51:17 by jkovacev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS = push_swap.c \
 		sort_three_nums.c \
 		radix_sort.c \
 		sort.c \
-		free.c
+		free.c \
+		one_arg_check.c
 
 OBJS = $(SRCS:.c=.o)
 

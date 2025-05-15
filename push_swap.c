@@ -6,16 +6,16 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 09:45:32 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:39:41 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 #include "parse_input.h"
 
-int	error_and_exit(void)
+void	error_and_exit(void)
 {
-	write (1, "Error\n", 6);
+	write (2, "Error\n", 6);
 	exit(1);
 }
 
@@ -43,10 +43,8 @@ int	check_args(int argc, char *argv[])
 {
 	if (argc == 1)
 		return (0);
-	if (argc == 2 && ft_strlen(argv[1]) == 0)
-		error_and_exit();
 	else if (argc == 2 && (!ft_strchr(argv[1], ' ')))
-		exit (1);
+		check_one_arg(argv[1]);
 	return (1);
 }
 int	main(int argc, char *argv[])

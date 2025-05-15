@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:25:48 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 22:17:58 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:24:24 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	valid_str(char *s, t_arr *arr_nums)
 {
-	if (ft_strlen(s) == 0 || (s[0] == '-' && s[1] == 0))
+	if (ft_strlen(s) == 0 || (s[0] == '-' && s[1] == 0)
+		|| (ft_strlen(s) > 1 && s[0] == '0'))
 	{
 		free_full_t_arr(arr_nums);
 		error_and_exit();

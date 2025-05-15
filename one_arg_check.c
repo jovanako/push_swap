@@ -1,51 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   one_arg_check.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/31 21:40:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 19:40:44 by jkovacev         ###   ########.fr       */
+/*   Created: 2025/05/15 18:46:34 by jkovacev          #+#    #+#             */
+/*   Updated: 2025/05/15 19:28:58 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_input.h"
 
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-	{
-		len++;
-	}
-	return (len);
-}
-
-int	ft_strncmp(char *s1, char *s2, size_t n)
-{
-	while ((n > 0) && (*s1 || *s2))
-	{
-		if ((*s1 - *s2) != 0)
-		{
-			write (2, "Error\n", 6);
-			return (1);
-		}
-		n--;
-		s1++;
-		s2++;
-	}
-	return (0);
-}
-
-int	ft_atoi(char *s, t_arr *arr_nums)
+static void	is_int(char *s)
 {
 	int		i;
 	int		result;
@@ -66,10 +33,36 @@ int	ft_atoi(char *s, t_arr *arr_nums)
 	result_str = ft_itoa(result);
 	if (ft_strncmp(result_str, s, ft_strlen(s)) != 0)
 	{
-		free_full_t_arr(arr_nums);
 		free(result_str);
-		exit(1);
+		error_and_exit();
 	}
 	free(result_str);
-	return (result);
+}
+
+int	str_isdigit(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (s[i] == '-')
+		i = 1;
+	while (s[i])
+	{
+		if (!(s[i] >= '0' && s[i] <= '9'))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+void	check_one_arg(char *s)
+{
+	if (ft_strlen(s) == 0 || (s[0] == '-' && s[1] == '0'))
+		error_and_exit();
+	else if (!str_isdigit(s))
+		error_and_exit();
+	else if (ft_strlen(s) > 1 && s[0] == '0')
+		error_and_exit();
+	else
+		is_int(s);
 }

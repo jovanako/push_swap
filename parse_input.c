@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 10:01:26 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 20:34:07 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:40:50 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	check_dup(t_arr *arr_nums)
 		{
 			if (arr_nums->arr[i] == arr_nums->arr[j])
 			{
-				write (1, "Error\n", 6);
+				write (2, "Error\n", 6);
 				return (free_full_t_arr_and_return(arr_nums));
 			}
 			j++;

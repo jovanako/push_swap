@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:08:35 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 09:30:14 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:40:30 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_digit(char *s, t_arr *arr_nums)
 		if (!(s[i] >= '0' && s[i] <= '9'))
 		{
 			free_full_t_arr(arr_nums);
-			write (1, "Error\n", 6);;
+			write (2, "Error\n", 6);;
 			exit(1);
 		}
 		i++;

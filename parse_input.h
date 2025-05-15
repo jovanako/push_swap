@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 09:03:50 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 22:17:19 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 19:07:55 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ typedef struct s_arr
 	int		size;
 }	t_arr;
 
-
+void	check_one_arg(char *s);
 int		ft_atoi(char *s, t_arr *arr_nums);
+int		ft_isdigit(int c);
+int		ft_strncmp(char *s1, char *s2, size_t n);
 int		valid_str(char *s, t_arr *arr_nums);
 int		ft_strlen(char *str);
 char	*ft_itoa(int n);
@@ -35,7 +37,7 @@ int		parse_args(t_arr **arr_nums, int argc, char *argv[]);
 int		fill_array(t_arr **arr_nums, char *nums[]);
 int		fill_stack(t_stack *stack, t_arr *arr_nums);
 int		check_digit(char *s, t_arr *arr_nums);
-int		error_and_exit(void);
+void	error_and_exit(void);
 int		free_t_arr_and_return(t_arr *arr_nums);
 void	free_full_t_arr(t_arr *arr_nums);
 int		free_full_t_arr_and_return(t_arr *arr_nums);
