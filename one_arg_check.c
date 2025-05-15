@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 18:46:34 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 19:28:58 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 21:08:32 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	is_int(char *s)
 	if (ft_strncmp(result_str, s, ft_strlen(s)) != 0)
 	{
 		free(result_str);
-		error_and_exit();
+		exit(1);
 	}
 	free(result_str);
 }
@@ -65,4 +65,5 @@ void	check_one_arg(char *s)
 		error_and_exit();
 	else
 		is_int(s);
+	exit(0);
 }

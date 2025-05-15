@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 19:39:41 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/15 21:15:59 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,12 @@ int	cleanup_arr(t_arr *arr_nums)
 	return (free_full_t_arr_and_return(arr_nums));
 }
 
-int	check_args(int argc, char *argv[])
+void	check_args(int argc, char *argv[])
 {
 	if (argc == 1)
-		return (0);
+		exit(1);
 	else if (argc == 2 && (!ft_strchr(argv[1], ' ')))
 		check_one_arg(argv[1]);
-	return (1);
 }
 int	main(int argc, char *argv[])
 {
@@ -53,8 +52,7 @@ int	main(int argc, char *argv[])
 	t_stack	*b;
 	t_arr	*arr_nums;
 
-	if (!check_args(argc, argv))
-		return (1);
+	check_args(argc, argv);
 	if (!parse_args(&(arr_nums), argc, argv))
 		return (1);
 	sort_arr(arr_nums);
