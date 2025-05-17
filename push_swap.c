@@ -6,20 +6,14 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 21:15:59 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/17 21:48:03 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
 #include "parse_input.h"
 
-void	error_and_exit(void)
-{
-	write (2, "Error\n", 6);
-	exit(1);
-}
-
-void	cleanup_stacks(t_stack *stack)
+static void	cleanup_stacks(t_stack *stack)
 {
 	t_list_node	*current_node;
 	t_list_node	*temp;
@@ -34,18 +28,32 @@ void	cleanup_stacks(t_stack *stack)
 	free(stack);
 }
 
-int	cleanup_arr(t_arr *arr_nums)
+static int	cleanup_arr(t_arr *arr_nums)
 {
 	return (free_full_t_arr_and_return(arr_nums));
 }
 
 void	check_args(int argc, char *argv[])
 {
+	long int	number;
+	
 	if (argc == 1)
 		exit(1);
 	else if (argc == 2 && (!ft_strchr(argv[1], ' ')))
-		check_one_arg(argv[1]);
+	{
+		if (ft_strlen(argv[1]) == 0)
+			error_and_exit();
+		if (ft_strlen(argv[1]) == 1
+			&& !(argv[1][0] >= '0' && argv[1][0] <= '9'))
+			error_and_exit();			
+		number = ft_atol(argv[1]);
+		if (number < -2147483648 || number > 2147483647)
+			error_and_exit();
+		else
+			exit(0);
+	}
 }
+// #include <stdio.h>
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
@@ -55,6 +63,8 @@ int	main(int argc, char *argv[])
 	check_args(argc, argv);
 	if (!parse_args(&(arr_nums), argc, argv))
 		return (1);
+	// for (int i = 0; i < 3; i++)
+	// 	printf("arr[%d]: %d\n", i, arr_nums->arr[i]);
 	sort_arr(arr_nums);
 	if (!arr_nums->arr)
 		return (0);

@@ -6,15 +6,15 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 16:22:26 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 11:28:57 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/16 11:56:27 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_H
-#define LIST_H
+# define LIST_H
 
-#include <unistd.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 typedef struct s_list_node
 {

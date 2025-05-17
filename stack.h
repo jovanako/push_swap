@@ -6,14 +6,14 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:58 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/14 11:30:03 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/16 11:55:28 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
-#define STACK_H
+# define STACK_H
 
-#include "list.h"
+# include "list.h"
 
 typedef struct s_stack
 {

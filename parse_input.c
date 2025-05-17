@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 10:01:26 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 19:40:50 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/17 20:49:47 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	check_dup(t_arr *arr_nums)
 	}
 	return (1);
 }
+
 int	parse_args(t_arr **arr_nums, int argc, char *argv[])
 {
 	(*arr_nums) = ((t_arr *)malloc(sizeof(t_arr)));
@@ -100,31 +101,31 @@ int	parse_args(t_arr **arr_nums, int argc, char *argv[])
 		return (free_full_t_arr_and_return(*arr_nums));
 	if (!check_dup(*arr_nums))
 		return (0);
-	return (1);	
+	return (1);
 }
 
-int    fill_stack(t_stack *stack, t_arr *arr_nums)
+int	fill_stack(t_stack *stack, t_arr *arr_nums)
 {
-    int     i;
-    int     j;
-    int     current_value;
-    
-    i = arr_nums->size - 1;
-    while (i >= 0)
-    {
-        current_value = ft_atoi(arr_nums->numbers[i], arr_nums);
-        j = 0;
-        while(j < arr_nums->size)
-        {
-            if (current_value == arr_nums->arr[j])
-            {
-                if (!push(stack, j))
-                    return (0);
-                break ;
-            }
-            j++;
-        }
-        i--;
-    }
-    return (1);
+	int	i;
+	int	j;
+	int	current_value;
+
+	i = arr_nums->size - 1;
+	while (i >= 0)
+	{
+		current_value = ft_atol(arr_nums->numbers[i]);
+		j = 0;
+		while (j < arr_nums->size)
+		{
+			if (current_value == arr_nums->arr[j])
+			{
+				if (!push(stack, j))
+					return (0);
+				break ;
+			}
+			j++;
+		}
+		i--;
+	}
+	return (1);
 }

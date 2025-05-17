@@ -6,14 +6,14 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 13:01:58 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 09:30:55 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/16 11:55:52 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SORT_H
-#define SORT_H
+# define SORT_H
 
-#include "instructions.h"
+# include "instructions.h"
 
 void	sort_arr(t_arr *arr_nums);
 int		sort_three_nums(t_stack *a, int max);

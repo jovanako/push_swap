@@ -6,22 +6,11 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:25:48 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/15 19:24:24 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/17 21:04:45 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parse_input.h"
-
-int	valid_str(char *s, t_arr *arr_nums)
-{
-	if (ft_strlen(s) == 0 || (s[0] == '-' && s[1] == 0)
-		|| (ft_strlen(s) > 1 && s[0] == '0'))
-	{
-		free_full_t_arr(arr_nums);
-		error_and_exit();
-	}
-	return (1);
-}
 
 char	*ft_strchr(char *s, char c)
 {
@@ -53,10 +42,10 @@ static int	calculate_substring_size(int start_index,
 char	*ft_substr(char *s, int start, int len)
 {
 	char	*substr;
-	int	    i;
-	int	    j;
-	int	    s_len;
-	int 	substring_size;
+	int		i;
+	int		j;
+	int		s_len;
+	int		substring_size;
 
 	s_len = ft_strlen(s);
 	substring_size = calculate_substring_size(start, s_len, len);
