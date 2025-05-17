@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/17 21:48:03 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/17 22:15:52 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	check_args(int argc, char *argv[])
 			exit(0);
 	}
 }
-// #include <stdio.h>
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
@@ -63,8 +63,6 @@ int	main(int argc, char *argv[])
 	check_args(argc, argv);
 	if (!parse_args(&(arr_nums), argc, argv))
 		return (1);
-	// for (int i = 0; i < 3; i++)
-	// 	printf("arr[%d]: %d\n", i, arr_nums->arr[i]);
 	sort_arr(arr_nums);
 	if (!arr_nums->arr)
 		return (0);
