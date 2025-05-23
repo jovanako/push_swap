@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 08:54:03 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/17 22:15:52 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/23 11:30:35 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	cleanup_arr(t_arr *arr_nums)
 	return (free_full_t_arr_and_return(arr_nums));
 }
 
-void	check_args(int argc, char *argv[])
+static void	check_args(int argc, char *argv[])
 {
 	long int	number;
 	
