@@ -6,7 +6,7 @@
 #    By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/31 16:24:37 by jkovacev          #+#    #+#              #
-#    Updated: 2025/05/17 22:08:14 by jkovacev         ###   ########.fr        #
+#    Updated: 2025/05/23 11:51:16 by jkovacev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRCS = push_swap.c \
 		sort.c \
 		exit_functions.c
 
-OBJS = $(SRCS:.c=.o)
+OBJDIR = objects
+OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
 DEPS = list.h \
 		stack.h \
@@ -45,11 +46,12 @@ all: $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
 
-%.o: %.c $(DEPS)
+$(OBJDIR)/%.o: %.c $(DEPS)
+	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)
