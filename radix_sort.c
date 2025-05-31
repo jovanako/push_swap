@@ -6,13 +6,13 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:22:41 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/12 12:45:27 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/31 17:46:46 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "instructions.h"
 
-int	check_ones(t_stack *stack, int mask)
+static int	check_ones(t_stack *stack, int mask)
 {
 	t_list_node	*current_node;
 

@@ -6,11 +6,27 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 11:35:04 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/12 12:54:57 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/31 17:49:10 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort.h"
+
+static int	sorted(t_stack *stack)
+{
+	t_list_node	*current_node;
+	int			sorted;
+
+	sorted = 1;
+	current_node = stack->head;
+	while (current_node->number != stack->tail->number)
+	{
+		if (current_node->number > current_node->next->number)
+			sorted = 0;
+		current_node = current_node->next;
+	}
+	return (sorted);
+}
 
 static int	find_min(t_stack *stack, int min)
 {

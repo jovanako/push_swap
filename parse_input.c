@@ -6,7 +6,7 @@
 /*   By: jkovacev <jkovacev@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 10:01:26 by jkovacev          #+#    #+#             */
-/*   Updated: 2025/05/17 20:49:47 by jkovacev         ###   ########.fr       */
+/*   Updated: 2025/05/31 17:45:53 by jkovacev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	**copy_numbers(int n, char *src[], char *dst[])
 	return (dst);
 }
 
-int	check_dup(t_arr *arr_nums)
+static int	check_dup(t_arr *arr_nums)
 {
 	int	i;
 	int	j;
